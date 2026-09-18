@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-surface-page font-sans text-ink-800 antialiased;
+  }
+
+  /* Slim, unobtrusive scrollbars that suit the light dashboard. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.ink.300') transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-ink-300;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-400;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-ink-200/70 bg-surface-card shadow-card;
+  }
+
+  .card-flat {
+    @apply rounded-card border border-ink-200/70 bg-surface-card;
+  }
+
+  .input-base {
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-800
+      placeholder:text-ink-400 transition
+      focus:border-brand-400 focus:outline-none focus:ring-4 focus:ring-brand-500/10
+      disabled:cursor-not-allowed disabled:bg-ink-50 disabled:text-ink-400;
+  }
+
+  .label-base {
+    @apply mb-1.5 block text-sm font-medium text-ink-700;
+  }
+
+  .section-label {
+    @apply px-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-lg bg-ink-100;
+  }
+
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r
+      from-transparent via-white/70 to-transparent;
+  }
+}
+
+/* Keeps long ticket descriptions and chat messages from breaking the layout. */
+.break-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
