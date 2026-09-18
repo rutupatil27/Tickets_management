@@ -40,6 +40,11 @@ export const env = {
   // Where chat photos are stored. Empty = server/uploads.
   UPLOADS_DIR: process.env.UPLOADS_DIR || '',
 
+  // Cloudinary credentials (optional - for cloud photo storage in production)
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || '',
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || '',
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || '',
+
   // First admin account, created by `npm run create-admin`. There is no demo
   // data: customers sign up themselves and the admin adds agents.
   ADMIN_NAME: process.env.ADMIN_NAME || 'Administrator',
